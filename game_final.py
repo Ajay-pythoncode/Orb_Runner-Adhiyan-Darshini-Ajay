@@ -1,7 +1,6 @@
 import pygame
 import random 
 import math
-
 from sys import exit
 winner=True
 score=0
@@ -114,7 +113,8 @@ def initial_screen():
     screen.blit(text_2,text_2_rect)
     pygame.display.flip()
 def init_surf():
-    global bg_surf,txt_surf,obst_surf,txt_font,obst_surf1,title_font,text_font
+    global bg_surf,txt_surf,txt_font,title_font,text_font,trail_surf
+    trail_surf = pygame.Surface((600,400),pygame.SRCALPHA)
     bg_surf = pygame.image.load("BG.png").convert()
     title_font = pygame.font.Font('CaviarDreams_Bold.ttf',35)
     txt_font = pygame.font.Font('CaviarDreams_Bold.ttf',20)
@@ -280,7 +280,7 @@ def instructions():
     pygame.display.update()
 
 pygame.init()
-screen = pygame.display.set_mode((600,400),pygame.FULLSCREEN)
+screen = pygame.display.set_mode((600,400),pygame.FULLSCREEN | pygame.SCALED)
 pygame.display.set_caption("Orb Runner")
 
 clock = pygame.time.Clock()
